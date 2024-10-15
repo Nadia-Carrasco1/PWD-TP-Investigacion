@@ -31,3 +31,16 @@ INSERT INTO `persona` (`NroDni`, `Apellido`, `Nombre`) VALUES
 ('25963874', 'Farias', 'Marta'),
 ('30875962', 'Lopez', 'Eduardo'),
 ('22985265', 'Ramirez', 'Claudia');
+
+-- 
+-- Estructura de tabla para la tabla `evento`
+-- 
+
+CREATE TABLE `evento` (
+  `evento` varchar(20) character set utf8 collate utf8_unicode_ci NOT NULL,
+  `fechaInicio` date NOT NULL,
+  `fechaFin` date NOT NULL,
+  `horaInicio` time NOT NULL,
+  `horaFin` time NOT NULL,
+  PRIMARY KEY  (`evento`, `fechaInicio`, `fechaFin`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
