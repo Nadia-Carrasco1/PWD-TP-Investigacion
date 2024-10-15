@@ -8,9 +8,9 @@ class ABM_Persona {
      */
     private function cargarObjeto($param){
         $obj = null;
-        if( array_key_exists('NroDni',$param) && array_key_exists('Apellido',$param) && array_key_exists('Nombre',$param) && array_key_exists('fechaNac',$param)){
+        if( array_key_exists('NroDni',$param) && array_key_exists('Apellido',$param) && array_key_exists('Nombre',$param)){
             $obj = new Persona();
-            $obj->setear($param['NroDni'], $param['Apellido'], $param['Nombre'], $param['fechaNac']);
+            $obj->setear($param['NroDni'], $param['Apellido'], $param['Nombre']);
         }
         return $obj;
     }

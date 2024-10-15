@@ -22,7 +22,7 @@ if (!empty($todasLasPersonas)) {
                         <th>DNI</th>
                         <th>Apellido</th>
                         <th>Nombre</th>
-                        <th>Fecha de nacimiento</th>
+
                     </tr>
                     <tr>";
 
@@ -31,7 +31,6 @@ if (!empty($todasLasPersonas)) {
                             echo    "<td class='bg-success'>" . $unaPersona->getNroDni();
                             echo    "<td class='table-success'>" . $unaPersona->getApellido();
                             echo    "<td class='table-success'>" . $unaPersona->getNombre();
-                            echo    "<td class='table-success'>" . $unaPersona->getFechaNac();
                             echo "</tr>";
                         }
                     
