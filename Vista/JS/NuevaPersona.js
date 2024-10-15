@@ -17,19 +17,6 @@ $('#formPersona').validate({
             maxlength: 25,
             required: true
         },
-        fechaNac: {
-            required: true
-        },
-        Telefono: {
-            formatoTelefonoValido: true,
-            maxlength: 11,
-            minlength: 11,
-            required: true
-        },
-        Domicilio: {
-            domicilioValido: true,
-            required: true
-        },
     },
     messages: {
         NroDni: {
@@ -48,20 +35,6 @@ $('#formPersona').validate({
             soloLetras: "El nombre solo debe contener letras",
             maxlength: "Por favor, ingrese hasta 30 dígitos",
             required: "Por favor, ingrese su nombre"
-        },
-        fechaNac: {
-            required: "Por favor, ingrese su fecha de nacimiento"
-        },
-        
-        Telefono: {
-            formatoTelefonoValido: "Formato de teléfono: código de área-5632419",
-            maxlength: "Formato de teléfono: código de área-5632419",
-            minlength: "Formato de teléfono: código de área-5632419",
-            required: "Por favor, ingrese su número de teléfono" 
-        },
-        Domicilio: {
-            domicilioValido: "Por favor, ingrese la calle y su altura",
-            required: "Por favor, ingrese su domicilio"
         }
     }
 });
@@ -74,10 +47,3 @@ $.validator.addMethod("soloNumeros", function (valor) {
     return /^[0-9]+$/.test(valor);
 }, "Solo debe contener números");
 
-$.validator.addMethod("formatoTelefonoValido", function(valor) {
-    return /^\d{3}-\d{7}$/.test(valor);
-}, "Formato de patente válido");
-
-$.validator.addMethod("domicilioValido", function (valor) {
-    return /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*\s)[a-zA-Z0-9\s]+$/.test(valor);
-  }, "Domicilio válido");

@@ -22,9 +22,6 @@ include_once '../Estructura/Header.php';
                 <label class="form-label text-muted" for="Nombre">Nombre</label>
                 <input type="text" name="Nombre" id="Nombre" class="form-control" required><br>
                 <!---->
-                <label class="form-label text-muted" for="fechaNac">Fecha de nacimiento</label>
-                <input type="date" name="fechaNac" id="fechaNac" class="form-control" required><br><br>
-                <!---->
                 <div class="d-flex justify-content-center">
                             <h3>Ingresar Evento</h3>
                 </div>
