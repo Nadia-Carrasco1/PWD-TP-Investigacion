@@ -23,31 +23,12 @@ include_once '../Estructura/Header.php';
                 <label class="form-label text-muted" for="Nombre">Nombre</label>
                 <input type="text" name="Nombre" id="Nombre" class="form-control" required><br>
                 <!---->
-                <div class="d-flex justify-content-center">
-                            <h3>Ingresar Evento</h3>
-                </div>
-                <label class="form-label text-muted" for="summary">Evento</label>
-                <input type="text" name="summary" id="summary" class="form-control" required><br>
-                <!---->
-                <label class="form-label text-muted" for="start">Fecha de comienzo</label>
-                <input type="date" name="start" id="start" class="form-control" required><br>
-                <!---->
-                <label class="form-label text-muted" for="end">Fecha de finalizaci&oacute;n</label>
-                <input type="date" name="end" id="end" class="form-control" required><br>
-                <!---->
-                <label class="form-label text-muted" for="startTime">Hora de comienzo (opcional)</label>
-                <input type="time" name="startTime" id="startTime" class="form-control" required><br>
-                <!---->
-                <label class="form-label text-muted" for="endTime">Hora de finalizaci&oacute;n (opcional)</label>
-                <input type="time" name="endTime" id="endTime" class="form-control" required><br>
-                <!---->
+                
                 <div class="d-flex justify-content-center">
                     <input type="submit" value="Aceptar" class="btn btn-success col-md-5">
                 </div>
-                <br>
             </form>
         </div>
-        
     </div>
 </div>
 

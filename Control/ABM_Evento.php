@@ -1,6 +1,6 @@
 <?php
 
-class ABM_Persona {
+class ABM_Evento {
     /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
      * @param array $param
@@ -9,7 +9,7 @@ class ABM_Persona {
     private function cargarObjeto($param){
         $obj = null;
         if( array_key_exists('evento',$param) && array_key_exists('fechaInicio',$param) && array_key_exists('fechaFin',$param) && array_key_exists('horaInicio',$param) && array_key_exists('horaFin',$param)){
-            $obj = new Persona();
+            $obj = new Evento();
             $obj->setear($param['evento'], $param['fechaInicio'], $param['fechaFin'], $param['horaInicio'], $param['horaFin']);
         }
         return $obj;
@@ -18,12 +18,12 @@ class ABM_Persona {
     /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto que son claves
      * @param array $param
-     * @return Persona
+     * @return Evento
      */
     private function cargarObjetoConClave($param){
         $obj = null;
         if( isset($param['evento']) && isset($param['fechaInicio']) && isset($param['fechaFin']) ){
-            $obj = new Persona();
+            $obj = new Evento();
             $obj->setear($param['evento'], $param['fechaInicio'], $param['fechaFin'], null, null);
         }
         return $obj;

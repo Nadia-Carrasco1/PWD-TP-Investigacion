@@ -7,7 +7,7 @@
           <a class="nav-link" href="<?php echo $linkMenu?>Persona/listaPersonas.php">Listar personas |</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo $linkMenu?>Persona/NuevoEvento.php">Nuevo Evento |</a>
+          <a class="nav-link" href="<?php echo $linkMenu?>Persona/NuevaPersona.php">Nuevo Evento |</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?php echo $linkMenu?>Persona/BuscarPersona.php">Buscar persona |</a>

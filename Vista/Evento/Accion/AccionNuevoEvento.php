@@ -12,7 +12,10 @@ $datosForm = data_submitted();
 
 //$calendar = new Calendar;
 //$calendar->useSpanish();
-$objEvento  = new Evento;
+$objEvento  = new ABM_Evento;
+$res=$objEvento->alta($datosForm);
+
+print_r($datosForm);
 /*$events = array();
 
 $events[] = array(

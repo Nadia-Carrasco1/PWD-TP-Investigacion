@@ -43,7 +43,7 @@ include_once "../../Estructura/Header.php";
         </div>
     </div>
         <div class='d-flex justify-content-center'>
-            <a href='../NuevaPersona.php' class='btn btn-success col-md-2'>Volver</a>
+            <a href='../../Evento/NuevoEvento.php' class='btn btn-success col-md-2'>Siguiente</a>
         </div>
     </div><br>
     ";
