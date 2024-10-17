@@ -92,7 +92,9 @@ class ABM_Evento {
      * @param array $param
      * @return boolean
      */
+
     public function buscar($param){
+       
         $where = " true ";
         if ($param!=NULL){
             if  (isset($param['summary']))
@@ -109,4 +111,7 @@ class ABM_Evento {
         $arreglo = Evento::listar($where);  
         return $arreglo; 
     }
+    
+    
+    
 }

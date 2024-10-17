@@ -2,35 +2,38 @@
 include_once '../../configuracion.php';
 $link = "";
 $linkMenu = "../";
-$titulo = "Lista personas";
+$titulo = "Lista Eventos";
 include_once '../Estructura/Header.php';
 
-$objPersona = new ABM_Persona();
-$paramPersonas = "";
-$todasLasPersonas = $objPersona->buscar($paramPersonas);
+$objEvento = new ABM_Evento();
+$paramEventos = "";
+$eventos = $objEvento->buscar($paramEventos);
 
-if (!empty($todasLasPersonas)) {
+if (!empty($eventos)) {
     echo "
     <div class='container d-flex justify-content-center'>
         <div  class='col-md-10'><br>
             <div class='d-flex justify-content-center'>
-                <h3>Todas las personas</h3>
+                <h3>Todos los eventos</h3>
             </div>
             <div class='d-flex justify-content-center'>
                 <table border='1' class='table table-sm text-center table-bordered'>
                     <tr>
-                        <th>DNI</th>
-                        <th>Apellido</th>
                         <th>Nombre</th>
-
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Finalización</th>
+                        <th>Horario Inicio</th>
+                        <th>Horario Finalización</th>
                     </tr>
                     <tr>";
 
-                        foreach($todasLasPersonas as $unaPersona) {
+                        foreach($eventos as $evento) {
                             echo "<tr class='table-active text-black'>";
-                            echo    "<td class='bg-success'>" . $unaPersona->getNroDni();
-                            echo    "<td class='table-success'>" . $unaPersona->getApellido();
-                            echo    "<td class='table-success'>" . $unaPersona->getNombre();
+                            echo    "<td class='bg-success'>" . $evento->getSummary();
+                            echo    "<td class='table-success'>" . $evento->getStart();
+                            echo    "<td class='table-success'>" . $evento->getEnd();
+                            echo    "<td class='table-success'>" . $evento->getStartTime();
+                            echo    "<td class='table-success'>" . $evento->getEndTime();
                             echo "</tr>";
                         }
                     
@@ -40,7 +43,7 @@ if (!empty($todasLasPersonas)) {
         </div>
     </div>
     <div class='d-flex justify-content-center''>
-        <a href='Calendario.php' class='btn btn-success col-md-2'>Ver Calendario</a>
+        <a href='NuevoEvento.php' class='btn btn-success col-md-2'>Ingresar Evento</a>
     </div><br>";
 } else {
     echo "<br>
@@ -48,13 +51,13 @@ if (!empty($todasLasPersonas)) {
         <div class='d-flex justify-content-center'>
             <div class='alert alert-success'>
                 <div>
-                No hay personas cargadas en la base de datos
+                No hay eventos 
                 </div>
             </div>
         </div>
     </div>
     <div class='d-flex justify-content-center''>
-        <a href='NuevaPersona.php' class='btn btn-success col-md-2'>Ingresar una persona</a>
+        <a href='NuevoEvento.php' class='btn btn-success col-md-2'>Ingresar Evento</a>
     </div><br>
     ";
 }

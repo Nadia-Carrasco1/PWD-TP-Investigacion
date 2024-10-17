@@ -14,23 +14,6 @@
 
 --
 
--- 
--- Estructura de tabla para la tabla `persona`
--- 
-
-CREATE TABLE `persona` (
-  `NroDni` varchar(10) character set utf8 collate utf8_unicode_ci NOT NULL,
-  `Apellido` varchar(50) character set utf8 collate utf8_unicode_ci NOT NULL,
-  `Nombre` varchar(50) character set utf8 collate utf8_unicode_ci NOT NULL,
-  PRIMARY KEY  (`NroDni`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-INSERT INTO `persona` (`NroDni`, `Apellido`, `Nombre`) VALUES 
-('28326986', 'Moya', 'Manuel'),
-('25963874', 'Farias', 'Marta'),
-('30875962', 'Lopez', 'Eduardo'),
-('22985265', 'Ramirez', 'Claudia');
 
 -- 
 -- Estructura de tabla para la tabla `evento`

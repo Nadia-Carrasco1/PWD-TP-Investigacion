@@ -45,7 +45,7 @@
     }
 
     public function setSummary($summary) {
-        $this->evento = $summary;
+        $this->summary = $summary;
     }
     public function setStart($start) {
         $this->start = $start;
@@ -141,7 +141,7 @@
         $base=new BaseDatos();
         $sql="SELECT * FROM evento";
         if ($parametro!="") {
-            $sql.=' WHERE '.$parametro;
+           $sql.=' WHERE '.$parametro;
         }
         $res = $base->Ejecutar($sql);
         if($res>-1){
@@ -157,5 +157,6 @@
         }
         return $arreglo;
     }
+  
 }
 ?>

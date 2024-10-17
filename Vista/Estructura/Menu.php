@@ -4,16 +4,16 @@
       <ul class="navbar-nav">
         
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo $linkMenu?>Persona/listaPersonas.php">Listar personas |</a>
+          <a class="nav-link" href="<?php echo $linkMenu?>Evento/listaEventos.php">Lista Eventos |</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?php echo $linkMenu?>Evento/NuevoEvento.php">Nuevo Evento |</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo $linkMenu?>Persona/BuscarPersona.php">Buscar persona |</a>
+          <a class="nav-link" href="<?php echo $linkMenu?>Evento/Calendario.php">Calendario |</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo $linkMenu?>Persona/Calendario.php">Calendario |</a>
+          <a class="nav-link" href="<?php echo $linkMenu?>Evento/CalendarioSemanal.php">Calendario Semanal |</a>
         </li>
       </ul>
     </div>
