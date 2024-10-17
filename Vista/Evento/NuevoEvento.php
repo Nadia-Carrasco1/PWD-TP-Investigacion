@@ -23,10 +23,10 @@ include_once '../Estructura/Header.php';
                 <label class="form-label text-muted" for="end">Fecha de finalizaci&oacute;n</label>
                 <input type="date" name="end" id="end" class="form-control" required><br>
                 <!---->
-                <label class="form-label text-muted" for="startTime">Hora de comienzo (opcional)</label>
+                <label class="form-label text-muted" for="startTime">Hora de comienzo</label>
                 <input type="time" name="startTime" id="startTime" class="form-control" required><br>
                 <!---->
-                <label class="form-label text-muted" for="endTime">Hora de finalizaci&oacute;n (opcional)</label>
+                <label class="form-label text-muted" for="endTime">Hora de finalizaci&oacute;n</label>
                 <input type="time" name="endTime" id="endTime" class="form-control" required><br>
                 <!---
                 <label class="form-label text-muted" for="mask">Pintar calendario</label><br>
@@ -43,6 +43,6 @@ include_once '../Estructura/Header.php';
 </div>
 
 <?php
-$src = "../JS/NuevaEvento.js";
+$src = "../JS/NuevoEvento.js";
 include_once '../Estructura/footer.php';
 ?>

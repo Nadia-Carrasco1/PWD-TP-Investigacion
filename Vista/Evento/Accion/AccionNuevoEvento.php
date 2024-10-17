@@ -7,31 +7,14 @@ require '../../../Utiles/Libreria/Calendario/vendor/autoload.php';
 use benhall14\phpCalendar\Calendar as Calendar;
 
 $datosForm = data_submitted();
-
+var_dump($datosForm);
 $objEvento  = new ABM_Evento;
 //['summary'=>$datosForm['summary'],
 $eventos= $objEvento->Buscar(['summary'=>$datosForm['summary'],'start'=>$datosForm['start'],'end'=>$datosForm['end']]);
 //print_r($eventos);
 
 $icono = "<i class='bi bi-exclamation-triangle-fill'></i>";
-if	(count($eventos)==0){
- 
-    $eventoDuplicado = false;
-    foreach ($eventos as $evento) {
-
-        if (
-            ($datosForm['start'] >= $evento->getStart() && $datosForm['start'] <= $evento->getEnd()) || 
-            ($datosForm['end'] >= $evento->getStart() && $datosForm['end'] <= $evento->getEnd()) || 
-            ($datosForm['start'] <= $evento->getStart() && $datosForm['end'] >= $evento->getEnd())
-        ) {
-            $eventoDuplicado = true;
-            break;
-        }
-    
-    }
-    
-    if(!$eventoDuplicado){
-      
+if	(empty($eventos)){
 	$respuesta=$objEvento->alta($datosForm);
 	if ($respuesta) {
         $respuesta = "El evento fue ingresado correctamente";
@@ -41,18 +24,11 @@ if	(count($eventos)==0){
         $respuesta = "El evento no fue ingresado"; 
         $alert = "danger";
     }  
-    }
-
-
-}else {
-    $respuesta = "El evento ya fue seleccionado";
+} else {
+    $respuesta = "El evento ya fue ingresado";
     $alert = "warning";
 }
 
-?>
-
-
-<?php
 $link = "../";
 $linkMenu = "../../";
 include_once "../../Estructura/Header.php";

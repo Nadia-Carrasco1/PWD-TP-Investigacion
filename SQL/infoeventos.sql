@@ -14,7 +14,6 @@
 
 --
 
-
 -- 
 -- Estructura de tabla para la tabla `evento`
 -- 
