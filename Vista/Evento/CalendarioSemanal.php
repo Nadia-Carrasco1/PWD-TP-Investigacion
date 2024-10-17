@@ -30,12 +30,12 @@ $eventos = $objEvento->buscar($paramEvento);
     $eventosOrdenados[]=array(
         'start'=>$start." ". substr($startTime, 0, 5),
         'end'=>$end." ". substr($endTime, 0, 5),
+        'summary'=>$summary,
         'mask' => true,
         'classes' => ['myclass', 'abc']
 
     );
 
-   $calendar->addEvent($start,$end,$summary,true,['myclass', 'abc'],['event-class', 'abc']);
 }
 
 //CALENDARIO SEMANAL
