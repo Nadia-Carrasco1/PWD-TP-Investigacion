@@ -37,10 +37,10 @@ INSERT INTO `persona` (`NroDni`, `Apellido`, `Nombre`) VALUES
 -- 
 
 CREATE TABLE `evento` (
-  `evento` varchar(20) character set utf8 collate utf8_unicode_ci NOT NULL,
-  `fechaInicio` date NOT NULL,
-  `fechaFin` date NOT NULL,
-  `horaInicio` time NOT NULL,
-  `horaFin` time NOT NULL,
-  PRIMARY KEY  (`evento`, `fechaInicio`, `fechaFin`)
+  `summary` varchar(20) character set utf8 collate utf8_unicode_ci NOT NULL,
+  `start` date NOT NULL,
+  `end` date NOT NULL,
+  `startTime` time NOT NULL,
+  `endTime` time NOT NULL,
+  PRIMARY KEY  (`summary`, `start`, `end`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

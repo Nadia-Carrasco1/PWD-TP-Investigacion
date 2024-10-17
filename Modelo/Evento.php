@@ -1,79 +1,81 @@
 <?php
 
  class Evento {
-    private $evento;
-    private $fechaInicio;
-    private $fechaFin;
-    private $horaInicio;
-    private $horaFin;
+    private $summary;
+    private $start;
+    private $end;
+    private $startTime;
+    private $endTime;
     private $mensajeOperacion;
 
     public function __construct() {
-        $this->evento = "";
-        $this->fechaInicio = "";
-        $this->fechaFin = "";
-        $this->horaInicio = "";
-        $this->horaFin = "";
+        $this->summary = "";
+        $this->start = "";
+        $this->end = "";
+        $this->startTime = "";
+        $this->endTime = "";
         $this->mensajeOperacion = "";
     }
 
-    public function setear($evento, $fechaInicio, $fechaFin, $horaInicio, $horaFin) {
-        $this->setEvento($evento);
-        $this->setFechaInicio($fechaInicio);
-        $this->setFechaFin($fechaFin);
-        $this->setHoraInicio($horaInicio);
-        $this->setHoraFin($horaFin);
+    public function setear($summary, $start, $end, $startTime, $endTime) {
+        $this->setSummary($summary);
+        $this->setStart($start);
+        $this->setEnd($end);
+        $this->setStartTime($startTime);
+        $this->setEndTime($endTime);
     }
 
-    public function getEvento() {
-        return $this->evento;
+    public function getSummary() {
+        return $this->summary;
     }
-    public function getFechaInicio() {
-        return $this->fechaInicio;
+    public function getStart() {
+        return $this->start;
     }
-    public function getFechaFin() {
-        return $this->fechaFin;
+    public function getEnd() {
+        return $this->end;
     } 
-    public function getHoraInicio() {
-        return $this->horaInicio;
+    public function getStartTime() {
+        return $this->startTime;
     }
-    public function getHoraFin() {
-        return $this->horaFin;
+    public function getEndTime() {
+        return $this->endTime;
     }
     public function getmensajeoperacion(){
         return $this->mensajeOperacion;
     }
 
-    public function setEvento($evento) {
-        $this->evento = $evento;
+    public function setSummary($summary) {
+        $this->evento = $summary;
     }
-    public function setFechaInicio($fechaInicio) {
-        $this->fechaInicio = $fechaInicio;
+    public function setStart($start) {
+        $this->start = $start;
     }
-    public function setFechaFin($fechaFin) {
-        $this->fechaFin = $fechaFin;
+    public function setEnd($end) {
+        $this->end = $end;
     }
-    public function setHoraInicio($horaInicio) {
-        $this->horaInicio = $horaInicio;
+    public function setStartTime($startTime) {
+        $this->startTime = $startTime;
     }
-    public function setHoraFin($horaFin) {
-        $this->horaFin = $horaFin;
+    public function setEndTime($endTime) {
+        $this->endTime = $endTime;
     }
     public function setmensajeoperacion($mensajeOperacion)
     {
         $this->mensajeOperacion = $mensajeOperacion;
     }
-
+    
     public function cargar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="SELECT * FROM evento WHERE evento = ".$this->getEvento()." AND fechaInicio = ".$this->getFechaInicio()." AND fechaFin = ".$this->getFechaFin();
+        $sql="SELECT * FROM evento WHERE summary = '".$this->getSummary()."' 
+        AND start = '".$this->getStart()."' 
+        AND end = '".$this->getEnd()."'";
         if ($base->Iniciar()) {
             $res = $base->Ejecutar($sql);
             if($res>-1){
-                if($res>0){
+                if($res>-1){
                     $row = $base->Registro();
-                    $this->setear($row['evento'], $row['fechaInicio'], $row['fechaFin'], $row['horaInicio'], $row['horaFin']);
+                    $this->setear($row['summary'], $row['start'], $row['end'], $row['startTime'], $row['endTime']);
                     //$resp = true;
                 }
             }
@@ -86,8 +88,8 @@
     public function insertar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="INSERT INTO evento(evento, fechaInicio, fechaFin, horaInicio, horaFin) 
-              VALUES('".$this->getEvento()."', '".$this->getFechaInicio()."', '".$this->getFechaFin()."', '".$this->getHoraInicio()."', '".$this->getHoraFin()."');";
+        $sql="INSERT INTO evento(`summary`, `start`, `end`, `startTime`, `endTime`) 
+              VALUES('".$this->getSummary()."', '".$this->getStart()."', '".$this->getEnd()."', '".$this->getStartTime()."', '".$this->getEndTime()."');";
         if ($base->Iniciar()) {
             if ($elid = $base->Ejecutar($sql)) {
                 $resp = true;
@@ -103,7 +105,9 @@
     public function modificar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="UPDATE evento SET horaInicio='".$this->getHoraInicio()."', horaFin='".$this->getHoraFin()."' WHERE evento='".$this->getEvento()."'. AND . ";
+        $sql = "UPDATE evento 
+        SET `startTime` = '".$this->getStartTime()."', `endTime` = '".$this->getEndTime()."' 
+        WHERE `summary` = '".$this->getSummary()."' AND `start` = '".$this->getStart()."' AND `end` = '".$this->getEnd()."'";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -119,7 +123,7 @@
     public function eliminar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="DELETE FROM evento WHERE evento=".$this->getEvento()."AND fechaInicio=".$this->getFechaInicio()."AND fechaFin=".$this->getFechaFin();
+        $sql="DELETE FROM evento WHERE `summary`=".$this->getSummary()."'AND start='".$this->getStart()."'AND end='".$this->getEnd();
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 return true;
@@ -144,7 +148,7 @@
             if($res>0){
                 while ($row = $base->Registro()){
                     $obj= new Evento();
-                    $this->setear($row['evento'], $row['fechaInicio'], $row['fechaFin'], $row['horaInicio'], $row['horaFin']);
+                    $obj->setear($row['summary'], $row['start'], $row['end'], $row['startTime'], $row['endTime']);
                     array_push($arreglo, $obj);
                 }
             }
@@ -154,5 +158,4 @@
         return $arreglo;
     }
 }
-
 ?>

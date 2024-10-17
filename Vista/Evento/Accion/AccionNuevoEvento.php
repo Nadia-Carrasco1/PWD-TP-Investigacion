@@ -15,7 +15,9 @@ $datosForm = data_submitted();
 $objEvento  = new ABM_Evento;
 $res=$objEvento->alta($datosForm);
 
-print_r($datosForm);
+
+
+//print_r($datosForm);
 /*$events = array();
 
 $events[] = array(

@@ -8,9 +8,9 @@ class ABM_Evento {
      */
     private function cargarObjeto($param){
         $obj = null;
-        if( array_key_exists('evento',$param) && array_key_exists('fechaInicio',$param) && array_key_exists('fechaFin',$param) && array_key_exists('horaInicio',$param) && array_key_exists('horaFin',$param)){
+        if( array_key_exists('summary',$param) && array_key_exists('start',$param) && array_key_exists('end',$param) && array_key_exists('startTime',$param) && array_key_exists('endTime',$param)){
             $obj = new Evento();
-            $obj->setear($param['evento'], $param['fechaInicio'], $param['fechaFin'], $param['horaInicio'], $param['horaFin']);
+            $obj->setear($param['summary'], $param['start'], $param['end'], $param['startTime'], $param['endTime']);
         }
         return $obj;
     }
@@ -22,9 +22,9 @@ class ABM_Evento {
      */
     private function cargarObjetoConClave($param){
         $obj = null;
-        if( isset($param['evento']) && isset($param['fechaInicio']) && isset($param['fechaFin']) ){
+        if( isset($param['summary']) && isset($param['start']) && isset($param['end']) ){
             $obj = new Evento();
-            $obj->setear($param['evento'], $param['fechaInicio'], $param['fechaFin'], null, null);
+            $obj->setear($param['summary'], $param['start'], $param['end'], null, null);
         }
         return $obj;
     }
@@ -36,7 +36,7 @@ class ABM_Evento {
      */
      private function seteadosCamposClaves($param){
         $resp = false;
-        if (isset($param['evento']) && isset($param['fechaInicio']) && isset($param['fechaFin']))
+        if (isset($param['summary']) && isset($param['start']) && isset($param['end']))
             $resp = true;
         return $resp;
     }
@@ -47,9 +47,8 @@ class ABM_Evento {
      */
     public function alta($param){
         $resp = false;
-        //$param['NroDni'] =null;
         $elObjtEvento = $this->cargarObjeto($param);
-        if ($elObjtEvento!=null and $elObjtEvento->insertar()){
+        if ($elObjtEvento!=null && $elObjtEvento->insertar()){
             $resp = true;
         }
         return $resp;
@@ -96,16 +95,16 @@ class ABM_Evento {
     public function buscar($param){
         $where = " true ";
         if ($param!=NULL){
-            if  (isset($param['evento']))
-                $where.=" and evento ='".$param['evento']."'";
-            if  (isset($param['fechaInicio']))
-                 $where.=" and fechaInicio ='".$param['fechaInicio']."'";
-            if  (isset($param['fechaFin']))
-                $where.=" and fechaFin ='".$param['fechaFin']."'";
-            if  (isset($param['horaInicio']))
-                $where.=" and horaInicio ='".$param['horaInicio']."'";
-            if  (isset($param['horaFin']))
-                $where.=" and horaFin ='".$param['horaFin']."'";
+            if  (isset($param['summary']))
+                $where.=" and summary ='".$param['summary']."'";
+            if  (isset($param['start']))
+                 $where.=" and start ='".$param['start']."'";
+            if  (isset($param['end']))
+                $where.=" and end ='".$param['end']."'";
+            if  (isset($param['startTime']))
+                $where.=" and startTime ='".$param['startTime']."'";
+            if  (isset($param['endTime']))
+                $where.=" and endTime ='".$param['endTime']."'";
         }
         $arreglo = Evento::listar($where);  
         return $arreglo; 
