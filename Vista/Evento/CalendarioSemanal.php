@@ -17,6 +17,7 @@ $objEvento= new ABM_Evento();
 
 
 $paramEvento = "";
+$eventosOrdenados=null;
 $eventos = $objEvento->buscar($paramEvento);
  foreach($eventos as $evento){
     
@@ -43,8 +44,12 @@ echo "
                 <h3>Eventos de la semana</h3>
             </div>
     ";
-    
-$calendar->addEvents($eventosOrdenados)->setTimeFormat('16:00', '19:00', 60)->useWeekView()->display(date('Y-m-d'), 'green');
+if($eventosOrdenados!=null){
+    $calendar->addEvents($eventosOrdenados)->setTimeFormat('06:00', '21:00', 60)->useWeekView()->display(date('Y-m-d'), 'green');
+} else{
+    echo "No hay eventos";
+}
+
 
 $calendar->stylesheet();
 
